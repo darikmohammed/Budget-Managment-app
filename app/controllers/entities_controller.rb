@@ -4,13 +4,8 @@ class EntitiesController < ApplicationController
 
   # GET /entities or /entities.json
   def index
-    # @entities = Group.find(params[:group_id])
-    # print 'Entity value: '
-    # p @entities
-
-    # @entities = Group.find(params[:group_id])
     @entities = Group.find(params[:group_id]).entities
-    p @entities
+
   end
 
   # GET /entities/1 or /entities/1.json
