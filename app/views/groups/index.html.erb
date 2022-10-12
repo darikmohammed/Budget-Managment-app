@@ -8,12 +8,14 @@
     <h1 class=' self-center text-2xl'>My Categories </h1>
     <%if @groups.empty?%>
       <h1>NO Categoires! Please Add catagories.</h1>
+    <%else%>
+      <div id="groups" class="min-w-full mt-8">
+        <%= render @groups %>
+      </div>
     <%end%>
     <%= link_to 'Add Category group', new_group_path, class: "btn-primary" %>
 
   </div>
 
-  <div id="groups" class="min-w-full mt-8">
-    <%= render @groups %>
-  </div>
+  
 </div>
