@@ -1,3 +1,45 @@
+<% catagories = [
+  {
+    title: 'Housing', 
+    icon: 'https://www.pngfind.com/pngs/m/285-2855803_housing-icon-hd-png-download.png'
+  },
+  {
+    title: 'Transportation', 
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD23FQ7QiZXdUdQm-e52n7Ijt9N67BICCbbhZSUO-GIwHy9XahvO55bsTSjMRi6wWBJTs&usqp=CAU'
+  },
+  {
+    title: 'Food', 
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY_FiKfG6pML4CW2RJ-AozY1IavtGalkABDJVdnUugPu4gP6OMPADEbjGRu8jMKFIAb9o&usqp=CAU'
+  },
+  {
+    title: 'Utilities', 
+    icon: 'https://cdn2.iconfinder.com/data/icons/crystalproject/crystal_project_256x256/apps/utilities.png'
+  },
+  {
+    title: 'Insurance', 
+    icon: 'https://www.freeiconspng.com/thumbs/insurance-icon/commercial-insurance-icon-9.png'
+  },
+  {
+    title: 'Medical & Healthcare', 
+    icon: 'https://cdn5.vectorstock.com/i/1000x1000/60/79/health-care-medical-icon-vector-2806079.jpg'
+  },
+  {
+    title: 'Saving, Investing, & Debt Payments', 
+    icon: 'https://static.vecteezy.com/system/resources/previews/006/530/644/original/shield-with-coins-denoting-isometric-icon-of-money-protection-financial-protection-money-cash-funds-safety-security-shield-coins-icon-isometric-vector.jpg'
+  },
+  {
+    title: 'Personal Spending', 
+    icon: 'https://cdn.imgbin.com/25/14/15/money-icon-finance-personal-finance-buHADtDT.jpg'
+  },
+  {
+    title: 'Recreation & Entertainment', 
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhbAPV-9k5abmf-KV_iC6bYSh2avsj5mGg1-6nw9djM4KmbMneeKYb5qiEsDoRijUXdJs&usqp=CAU'
+  },
+  {
+    title: 'Miscellaneous', 
+    icon: 'https://cdn.dribbble.com/users/77598/screenshots/7958090/media/9dfda44bd1e8b288602cd465655e7a36.png?compress=1&resize=400x300&vertical=top'
+  }
+]%>
 <%= form_with(model: group, class: "contents") do |form| %>
   <% if group.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
@@ -16,15 +58,24 @@
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :icon %>
-    <%= form.text_field :icon, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+<div class="my-5 flex flex-col gap-4">
+  <h3>Select Category Icon</h3>
+  <ul class="grid gap-6 w-full md:grid-cols-2">
+    <% catagories.each do |category|%>
+      <li>
+          <input type="radio" id=<%=category[:title]%> name="icon" value=<%=category[:icon]%> class="hidden peer" required>
+          <label for=<%=category[:title]%> class="flex justify-between gap-4 p-5 text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+              <div class="flex gap-4">
+                  <img src=<%=category[:icon]%> alt=<%=category[:title]%> class='w-10 h-10'>
+                  <div class="text-lg font-semibold"><%=category[:title]%></div>
+              </div>
+              <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </label>
+      </li>
+    <%end%>
+  </ul>
+</div>
+  
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
