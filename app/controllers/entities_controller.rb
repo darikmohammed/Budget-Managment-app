@@ -4,7 +4,13 @@ class EntitiesController < ApplicationController
 
   # GET /entities or /entities.json
   def index
-    @entities = Entity.all
+    # @entities = Group.find(params[:group_id])
+    # print 'Entity value: '
+    # p @entities
+
+    # @entities = Group.find(params[:group_id])
+    @entities = Group.find(params[:group_id]).entities
+    p @entities
   end
 
   # GET /entities/1 or /entities/1.json
@@ -22,11 +28,18 @@ class EntitiesController < ApplicationController
 
   # POST /entities or /entities.json
   def create
-    @entity = Entity.new(entity_params)
+    @group = Group.find(params[:group_id])
+    @expense = Entity.new(entity_params)
+    @expense.user = current_user
+    @expense.groups.push(@group)
+
+    # @entity = @group.entities.create(entity_params)
+    # @entity.user = current_user
+    # @entity = Entity.new(entity_params)
 
     respond_to do |format|
-      if @entity.save
-        format.html { redirect_to entity_url(@entity), notice: "Entity was successfully created." }
+      if @expense.save
+        format.html { redirect_to group_entities_path(params[:group_id]), notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,6 +79,6 @@ class EntitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entity_params
-      params.require(:entity).permit(:name, :amount, :user_id)
+      params.require(:entity).permit(:name, :amount)
     end
 end

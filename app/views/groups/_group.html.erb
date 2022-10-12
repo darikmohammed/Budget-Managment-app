@@ -2,7 +2,7 @@
 
   <img src=<%=group.icon%> alt=<%=group.name%> class='w-12 h-12'>
   <div>
-    <%= link_to group.name, entities_path, class: "text-2xl" %>
+    <%= link_to group.name, group_entities_path(group), class: "text-2xl" %>
     <p class=' text-xs'><%=group.updated_at%></p>
   </div>
   
