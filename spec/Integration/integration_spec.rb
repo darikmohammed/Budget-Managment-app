@@ -11,7 +11,7 @@ RSpec.describe 'Integration', type: :system do
     sign_in(@user)
   end
 
-  describe "Categories" do
+  describe 'Categories' do
     it 'show the header' do
       visit '/groups'
       expect(page.body).to include('Categories')
@@ -32,7 +32,7 @@ RSpec.describe 'Integration', type: :system do
     end
   end
 
-  describe "Transaction" do
+  describe 'Transaction' do
     it 'Add a new expense redirects to expense' do
       visit "/groups/#{@group.id}/entities"
       click_on('New Transaction')

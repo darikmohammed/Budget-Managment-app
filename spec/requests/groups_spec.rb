@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Groups", type: :request do
+RSpec.describe 'Groups', type: :request do
   before(:each) do
     @user = User.new(name: 'Darik', email: 'r.m.darik@mail.com', password: '123456')
     @user.save
@@ -13,7 +13,7 @@ RSpec.describe "Groups", type: :request do
   end
 
   it 'show index template' do
-    get groups_path	
+    get groups_path
     expect(response).to render_template('index')
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Entities", type: :request do
+RSpec.describe 'Entities', type: :request do
   before(:each) do
     @user = User.new(name: 'Darik', email: 'r.m.darik@mail.com', password: '123456')
     @user.save
