@@ -4,8 +4,12 @@ class EntitiesController < ApplicationController
 
   # GET /entities or /entities.json
   def index
-    @entities = Group.find(params[:group_id]).entities
-
+    @entities = Group.find(params[:group_id]).entities.order(created_at: :desc)
+    @total_amount = 0.0
+    @entities.each do |entity|
+      @total_amount += entity.amount
+    end
+    @group = Group.find(params[:group_id])
   end
 
   # GET /entities/1 or /entities/1.json

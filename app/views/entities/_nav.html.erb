@@ -1,5 +1,5 @@
 <nav class='flex justify-between self-stretch py-4 bg-blue-500 px-5 text-white'>    
-      <%= link_to 'Back', group_entities_path %>
+      <%= link_to '<', group_entities_path, class: 'text-2xl' %>
       <h1 class=' text-xl'>Transaction</h1>
       <%= link_to 'Log out' ,destroy_user_session_path, data: { turbo_method: :delete }, method: :delete %>              
 </nav>

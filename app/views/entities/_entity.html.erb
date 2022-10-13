@@ -1,16 +1,11 @@
-<div id="<%= dom_id entity %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+<div id="<%= dom_id entity %>" class='flex gap-8 justify-between  rounded p-3 shadow-lg'>
+  <p class="my-5 text-2xl"> 
     <%= entity.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Amount:</strong>
-    <%= entity.amount %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= entity.user_id %>
+  <p class="my-5 text-xl">
+    $<%= entity.amount %>
   </p>
 </div>
+<hr class="my-6">
+
