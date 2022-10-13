@@ -1,12 +1,16 @@
-<div id="<%= dom_id group %>" class='flex gap-6 items-center rounded p-3 shadow-lg'>
+<div id="<%= dom_id group %>" class='flex gap-6 items-center rounded p-3 shadow-lg justify-between'>
+  <div class='flex gap-6 items-center'>
+    <img src=<%=group.icon%> alt=<%=group.name%> class='w-12 h-12'>
+      <div>
+        <%= link_to group.name, group_entities_path(group), class: "text-2xl" %>
+        <p class=' text-xs'><%=group.updated_at%></p>
+      </div>
+  </div>
 
-  <img src=<%=group.icon%> alt=<%=group.name%> class='w-12 h-12'>
   <div>
-    <%= link_to group.name, group_entities_path(group), class: "text-2xl" %>
-    <p class=' text-xs'><%=group.updated_at%></p>
+    <p class=' text-lg'>$<%=group.amount%></p>
   </div>
   
-  <p class=' text-lg'>$23</p>
   
 </div>
 <hr class="my-6">

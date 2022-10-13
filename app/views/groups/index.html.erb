@@ -6,6 +6,7 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
     <h1 class=' self-center text-2xl'>My Categories </h1>
+    <p class='self-end text-lg'>Total Cost: <%=@total_amount%></p>
     <%if @groups.empty?%>
       <h1>NO Categoires! Please Add catagories.</h1>
     <%else%>
