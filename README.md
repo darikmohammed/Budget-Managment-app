@@ -1,56 +1,100 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Budget Managment App
 
-# Project Name
+> This app is about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
-> Description the project.
+## Features
 
+- Register and log in, so that the data is private to the user.
+- Introduce new transactions associated with a category.
+- See the money spent on each category.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Ruby on Rails
+- Devise for authentication
+- PostgreSQL
+- Tailwind css
+- Rspec test
 
-## Live Demo (if available)
+## Live demo
 
-[Live Demo Link](https://livedemo.com)
+https://rocky-dusk-21313.herokuapp.com/
 
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+# Getting Started
 
 ### Prerequisites
 
+- Ruby ruby-3.1.2 installed
+- PostgreSQL DBMS running
+
 ### Setup
 
-### Install
+- Open your terminal and navigate to the folder you would like to save the project.type the following commands to your terminal
 
-### Usage
+```bash
+git clone git@github.com:darikmohammed/Budget-Managment-app.git
+```
 
-### Run tests
+```bash
+cd Budget-Managment-app && bundle install
+```
 
-### Deployment
+**_before running the project we have to setup our databses_**
 
+<hr>
 
+1. Set databased name and password in database.yml
+
+2. Or Set `.env` file contains environment variables needed to get the Database up and running.
+
+- `.env.local` file you can use as a guide to configuring your own. Type the following commands into the terminal (or Git Bash, if using Windows) to create your `.env` file:
+
+```bash
+cp .env.local .env
+```
+
+```bash
+rails secret
+```
+
+- Set your variables at .env
+
+```env
+    DATABASE_HOST
+    DATABASE_USER
+    DATABASE_PASSWORD
+```
+
+### Then bootup your database by running the following command
+
+```shell
+rails db:reset
+
+```
+
+### Run application
+
+```rb
+rails server
+
+```
+
+- Open your web browser at [http://127.0.0.1:3000/](http://127.0.0.1:3000/)
+
+### Testing
+
+```
+rspec
+
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Darik Mohammed**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/darikmohammed)
+- Twitter: [@twitterhandle](https://twitter.com/r_darik)
+- LinkedIn: [darikmohammed](https://www.linkedin.com/in/darik-mohammed/)
 
 ## 🤝 Contributing
 
@@ -70,6 +114,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.

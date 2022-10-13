@@ -1,0 +1,24 @@
+<div class="w-full">
+<%= render 'nav' %>
+ 
+  <div class='mt-8 flex flex-col gap-4 items-center mx-5'>
+    <%= link_to 'Show Categories', groups_path, class: "btn-primary self-start" %>
+
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <h1 class=' self-center text-2xl'>Transactions for <%=@group.name%></h1>
+    <%if @entities.empty?%>
+      <h1>NO Categoires! Please Add catagories.</h1>
+    <%else%>
+      <div id="groups" class="min-w-full mt-8 flex flex-col">
+        <p class=' text-lg self-end'>Total Amount: $<%=@total_amount%></p>
+        <%= render @entities %>
+      </div>
+    <%end%>
+    <%= link_to 'New Transaction', new_group_entity_path, class: "btn-primary self-stretch text-center" %>
+
+  </div>
+
+</div>
